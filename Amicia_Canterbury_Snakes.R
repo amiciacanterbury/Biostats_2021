@@ -12,15 +12,23 @@ library(lubridate)
 
 
 snakes <- read_csv("data/snakes.csv")
+<<<<<<< HEAD
 snakes$day = as.factor(snakes$day) # As factor changes the factorial data 
 # When you want to change the data of a specific column - group_by
+=======
+snakes$day = as.factor(snakes$day)
+>>>>>>> ebd469205995a947d4fce84f711ac14d2c3862d4
 
 view(snakes)
 
 #The first thing we do is to create some summaries of the data. Refer to the summary statistics Chapter.
 
 snakes.summary <- snakes %>% 
+<<<<<<< HEAD
   group_by(day, snake) %>%  # Average's of everything, if you group by day = more sense because it will group by the day
+=======
+  group_by(day, snake) %>% 
+>>>>>>> ebd469205995a947d4fce84f711ac14d2c3862d4
   summarise(mean_openings = mean(openings),
             sd_openings = sd(openings)) %>% 
   ungroup()
@@ -82,6 +90,7 @@ plot(snakes.tukey, las = 1, col = "red")
 
 ggplot(data = snakes, aes(x = openings, y = day, fill = day)) +
   geom_bar(stat = "identity") +
+<<<<<<< HEAD
   labs(x = "Openings", y = "Day") +
   theme(legend.position = "none",
         axis.text.x = element_text(angle = 90)) +
@@ -111,4 +120,11 @@ ggplot(data = snakes, aes(x = day, y = openings, fill = snake))+
  
   
 
+=======
+  labs(x = "Day", y = "Openings") +
+  theme(legend.position = "none",
+        axis.text.x = element_text(angle = 90)) +
+  ggtitle("Bar graph representing the amount of releases that occur during openings")+
+  theme(panel.border = element_blank(), legend.position = "none")
+>>>>>>> ebd469205995a947d4fce84f711ac14d2c3862d4
 
